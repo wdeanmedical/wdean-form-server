@@ -1,0 +1,32 @@
+{
+  "name": "wdean-form-server",
+  "version": "1.0.0",
+  "description": "Node server for forms engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"We don't need no stinkin' tests.\" && exit 1",
+    "start-local": "export NODE_ENV=local && node_modules/.bin/nodemon app/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wdeanmedical/wdean-form-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wdeanmedical/wdean-form-server/issues"
+  },
+  "homepage": "https://github.com/wdeanmedical/wdean-form-server#readme",
+  "dependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "knex": "^0.17.6",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2"
+  }
+}

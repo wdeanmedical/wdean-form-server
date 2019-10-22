@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier", "security"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/no-extraneous-dependencies": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "should|expect"
+      }
+    ]
+  }
+}
