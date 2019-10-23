@@ -7,7 +7,15 @@
   ],
   "plugins": ["prettier", "security"],
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "es5"
+      }],
+    "semi": [2, "never"],
+    "comma-dangle": [2, "always-multiline"],
+    "arrow-parens": "off",
     "import/no-extraneous-dependencies": "off",
     "no-unused-vars": [
       "error",
