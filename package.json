@@ -18,6 +18,7 @@
     "@persistence": "app/persistence",
     "@tools": "tools"
   },
+  "_moduleAliasIgnoreWarning": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wdeanmedical/wdean-form-server.git"
