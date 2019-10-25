@@ -14,3 +14,8 @@ const PROTOCOL = process.env.PROTOCOL || 'http'
 
 // Connect to the SQL database and then start the server
 let server = null
+db.connect(db.SQL_CONNECTION)
+  .then(() => {
+    server = app.listen(PORT, () => logger.info(`Form server running on port: ${PORT}`))
+  })
+  .catch(error => logger.error(`${error.code}: ${error.stack}`))
