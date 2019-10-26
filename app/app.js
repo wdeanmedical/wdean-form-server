@@ -9,8 +9,11 @@ const { logger } = require('@util/logger')
 // AUTH MIDDLEWARE
 const { getMySqlConnection } = require('@middleware')
 
-// get API routers
-const router = require('./routers/router')
+const router = express.Router()
+
+const controller = require('@controllers/controller')
+
+router.get('/public/testApi', controller.main)
 
 // Start express app
 const app = express()
