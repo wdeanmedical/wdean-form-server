@@ -10,6 +10,7 @@
   },
   "_moduleAliases": {
     "@config": "config",
+    "@data": "data",
     "@util": "app/util",
     "@errors": "app/errors",
     "@middleware": "app/middleware",

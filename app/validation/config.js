@@ -10,6 +10,7 @@ const getValidator = req => {
 const config = {
   /* ******************** UTILITY ******************** */
   ['/public/testApi']: { GET: undefined },
+  ['/public/getForm']: { GET: undefined },
 }
 
 module.exports = { getValidator }

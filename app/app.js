@@ -14,6 +14,7 @@ const router = express.Router()
 const controller = require('@controllers/controller')
 
 router.get('/public/testApi', controller.main)
+router.get('/public/getForm', controller.main)
 
 // Start express app
 const app = express()

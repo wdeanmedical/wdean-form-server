@@ -1,4 +1,5 @@
 const db = require('@util/db')
+const testForm = require('@data/fields.json')
 const { selectForm } = require('@persistence/sql/selectForm')
 
 // HELPERS
@@ -20,6 +21,11 @@ const config = {
   ['/public/testApi']: {
     GET: (req, res) => {
       res.json({ message: 'testing' })
+    },
+  },
+  ['/public/getForm']: {
+    GET: (req, res) => {
+      res.json({ form: testForm })
     },
   },
 }
