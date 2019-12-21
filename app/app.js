@@ -15,6 +15,7 @@ const controller = require('@controllers/controller')
 
 router.get('/public/testApi', controller.main)
 router.get('/public/getForm', controller.main)
+router.get('/public/getFormFile', controller.main)
 
 // Start express app
 const app = express()
@@ -51,6 +52,8 @@ app.use((err, req, res, next) => {
   }
   next()
 })
+
+app.use(getMySqlConnection)
 
 // Add routes
 app.use('/api', router)

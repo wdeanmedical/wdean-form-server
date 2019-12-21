@@ -11,6 +11,7 @@ const config = {
   /* ******************** UTILITY ******************** */
   ['/public/testApi']: { GET: undefined },
   ['/public/getForm']: { GET: undefined },
+  ['/public/getFormFile']: { GET: undefined },
 }
 
 module.exports = { getValidator }

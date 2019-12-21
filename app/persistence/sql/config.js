@@ -3,6 +3,7 @@ const interpolate = (template, args, updateList) => {
 }
 
 const getStatement = (req, args, updateList) => {
+  console.log('req.route', req.route)
   const cleanArgs = args.map(arg => req.conn.escape(arg)) // escape all arguments to prevent injection
   const { method } = req
   const { path } = req.route
@@ -57,6 +58,10 @@ const selectCitizenAboutMe = args => {
   return ` SELECT aboutMe FROM user WHERE userID = ${args[0]}`
 }
 
+const selectForm = args => {
+  return `SELECT id, template FROM forms WHERE id = ${args[0]}`
+}
+
 const deleteMember = args => {
   return `
     UPDATE company_user
@@ -68,7 +73,7 @@ const deleteMember = args => {
 }
 
 const config = {
-  ['/some/route']: { GET: selectCompany },
+  ['/public/getForm']: { GET: selectForm },
 }
 
 module.exports = { getStatement }

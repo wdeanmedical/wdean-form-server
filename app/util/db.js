@@ -1,18 +1,12 @@
 const util = require('util')
 const mysql = require('mysql')
+const knexStringcase = require('knex-stringcase')
 
 const { AppError } = require('@errors')
 
-const {
-  DB_ERROR,
-  DB_POOL_ERROR,
-  // DB_READ_ERROR,
-  // DB_WRITE_ERROR
-} = require('@errors/errorMessages')
+const { DB_ERROR, DB_POOL_ERROR } = require('@errors/errorMessages')
 
 const state = { pool: null, mode: null }
-// const READ = 'read';
-// const WRITE = 'write';
 const SQL_CONNECTION = process.env.NODE_ENV
 
 const connect = mode =>
@@ -27,28 +21,6 @@ const connect = mode =>
     })
     state.mode = mode
     resolve()
-
-    // TODO examine previous idea of separate read/write configurations
-    // case 'production':
-    //   state.pool = mysql.createPoolCluster();
-
-    //   state.pool.add('WRITE', {
-    //     host: process.env.SQL_PROD_WRITE_HOST,
-    //     user: process.env.SQL_PROD_WRITE_USER,
-    //     password: process.env.SQL_PROD_WRITE_PW,
-    //     database: process.env.SQL_PRO_DB
-    //   });
-
-    //   state.pool.add('READ', {
-    //     host: process.env.SQL_PROD_READ_HOST,
-    //     user: process.env.SQL_PROD_READ_USER,
-    //     password: process.env.SQL_PROD_READ_PW,
-    //     database: process.env.SQL_PRO_DB
-    //   });
-
-    //   state.mode = mode;
-    //   resolve();
-    //   break;
   })
 
 const get = type =>
@@ -59,24 +31,6 @@ const get = type =>
     }
 
     switch (type) {
-      // case READ:
-      //   state.pool.getConnection('READ*', (err, connection) => {
-      //     if (err) {
-      //       reject(new AppError(`${DB_READ_ERROR}: ${err}`));
-      //     } else {
-      //       resolve(connection);
-      //     }
-      //   });
-      //   break;
-      // case WRITE:
-      //   state.pool.getConnection('WRITE', (err, connection) => {
-      //     if (err) {
-      //       reject(new AppError(`${DB_WRITE_ERROR}: ${err}`));
-      //     } else {
-      //       resolve(connection);
-      //     }
-      //   });
-      //   break;
       case SQL_CONNECTION:
         // Promisify for Node.js async/await.
         state.pool.query = util.promisify(state.pool.query)
@@ -99,8 +53,6 @@ const keysToUpdateList = (conn, keys) => {
 }
 
 module.exports = {
-  // READ,
-  // WRITE,
   SQL_CONNECTION,
   connect,
   get,
