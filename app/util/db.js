@@ -1,6 +1,5 @@
 const util = require('util')
 const mysql = require('mysql')
-const knexStringcase = require('knex-stringcase')
 
 const { AppError } = require('@errors')
 
